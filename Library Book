@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+class Book {
+private:
+    string isbn;
+    int copiesAvailable;
+
+public:
+    string title;
+    string author;
+
+    //constructor
+    Book(string t, string a, string i, int copies) {
+        title = t;
+        author = a;
+        isbn = i;
+        copiesAvailable = copies;
+    }
+    
+    //method to issue a book
+    void issueBook() {
+        if (copiesAvailable > 0) {
+            copiesAvailable--;
+            cout << "Book issued. Copies left: " << copiesAvailable << endl;
+        } else {
+            cout << "No copies available to issue." << endl;
+        }
+    }
+
+    //method to add copies
+    void addCopies(int n) {
+        if (n > 0) {
+            copiesAvailable += n;
+            cout << n << " copies added. Total now: " << copiesAvailable << endl;
+        } else {
+            cout << "Invalid number of copies to add." << endl;
+        }
+    }
+
+    //method to display book details
+    void displayInfo() {
+        cout << "Title: " << title << ", Author: " << author << ", Copies: " << copiesAvailable << endl;
+    }
+};
+
+int main() {
+     //creating a book details
+    Book b1("The Great Gatsby", "F. Scott Fitzgerald", "123456789", 3);
+    b1.displayInfo();
+    //issue a book
+    b1.issueBook(); 
+	//add copies    
+    b1.addCopies(2);        
+
+    return 0;
+}
+

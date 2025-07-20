@@ -1,0 +1,57 @@
+#include<iostream>
+ #include<string>
+ using namespace std;
+ 
+ class Student{
+ private:
+    int rollNo;
+	float marks;
+ public:
+ 	string name;
+    string branch;
+ 
+    //constructor
+ Student(int r, float m, string n, string b) {
+        rollNo = r;
+        marks = m;
+        name = n;
+        branch = b;
+    }
+    //setter
+ void setMarks(float m) {
+        if (m >= 0 && m <= 100)
+            marks = m;
+        else
+            cout << "Invalid marks! Must be between 0 and 100.\n";
+    }
+    //getter
+float getMarks() {
+        return marks;
+    }
+
+    //dispay student details:
+    void displayDetails() {
+        cout << "Student Details:\n";
+        cout << "Name: " << name << endl;
+        cout << "Branch: " << branch << endl;
+        cout << "Roll No: " << rollNo << endl;
+        cout << "Marks: " << marks << endl;
+    }
+};
+
+
+int main() {
+	 //creating a Student Object
+    Student s1( 21 , 85.0 ,"Bhanu", "Data Science");
+
+    //display details
+    s1.displayDetails();
+
+    //update and show marks using setter and getter
+    s1.setMarks(91.0);
+
+    cout << "Updated Marks: " << s1.getMarks() << endl;
+
+    return 0;
+ }
+

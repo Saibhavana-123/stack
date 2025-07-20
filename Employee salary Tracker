@@ -1,0 +1,52 @@
+include <iostream>
+using namespace std;
+
+class Employee {
+private:
+    double salary;
+    int empID;
+
+public:
+    string name;
+    string department;
+
+    //Constructor to initialize values
+    Employee(string empName, string dept, int id, double sal) {
+        name = empName;
+        department = dept;
+        empID = id;
+        salary = sal;
+    }
+
+    //setter for salary
+    void setSalary(double sal) {
+        salary = sal;
+    }
+
+    //getter for salary
+    double getSalary() const {
+        return salary;
+    }
+
+    //method to display employee details
+    void displayDetails() const {
+        cout << "Name: " << name << endl;
+        cout << "Department: " << department << endl;
+        cout << "Employee ID: " << empID << endl;
+        cout << "Salary: $" << salary << endl;
+    }
+};
+
+int main() {
+    //Create object details
+    Employee emp("Sai Bhavana", "HR", 21, 50000);
+    
+    //Display initial details
+    emp.displayDetails();
+    
+    //Update salary
+    emp.setSalary(55000);
+    cout << "\nUpdated Salary: $" << emp.getSalary() << endl;
+
+    return 0;
+}
